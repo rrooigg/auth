@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlalchemy
+databases
+psycopg[binary]
+python-jose
+pwdlib[argon2]
+python-decouple
+python-multipart
+PyJWT

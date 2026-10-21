@@ -30,7 +30,7 @@ def register_user(user: UserCreate, db: Session= Depends(get_db)):
 
   return db_user
 
-@auth_router.post('token')
+@auth_router.post('/token')
 async def login_for_access_token(
   form_data: OAuth2PasswordRequestForm = Depends(),
   db: Session = Depends(get_db)
@@ -38,7 +38,7 @@ async def login_for_access_token(
 
   user= authenticate_user(db, form_data.username, form_data.password)
   if not user:
-    raise HTTPException(status_code=401, detail='Incorrect usernam or password', 
+    raise HTTPException(status_code=401, detail='Incorrect username or password', 
     headers={'WWW-Authenticate': 'Bearer'}
   )
 

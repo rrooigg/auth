@@ -4,13 +4,13 @@ const API_URL= 'http://localhost:8000'
 
 const loginUser = async (credentials) => {
   try {
-    const params= URLSearchParams();
+    const params= new URLSearchParams();
     for (const key in credentials) {
       params.append(key, credentials[key])
 
   }
   const response= await axios.post(
-    `${API_URL}/auth/token`,
+    `${API_URL}/api/token`,
     params,
     {
       headers: {
@@ -31,7 +31,7 @@ const loginUser = async (credentials) => {
 
 const registerUser = async (userData) => {
   try {
-    await axios.post(`${API_URL}/auth/register`, userData);
+    await axios.post(`${API_URL}/api/register`, userData);
 
   } catch (error) {
     console.log('Registration Error;', error);
